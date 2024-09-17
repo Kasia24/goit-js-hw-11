@@ -1,6 +1,7 @@
 .feedback-form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 .input-class {
   border-radius: 4px;
@@ -28,4 +29,5 @@
   opacity: 0px;
   color: rgba(255, 255, 255, 1);
   background-color: rgba(78, 117, 255, 1);
+  border-color: rgba(78, 117, 255, 1);
 }
