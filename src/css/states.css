@@ -15,6 +15,7 @@
 }
 .txt-class {
   border-radius: 4px;
+  gap: 8px;
 }
 .btn {
   width: 75px;
