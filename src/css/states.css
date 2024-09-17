@@ -49,4 +49,7 @@
   height: 40px;
   gap: 8px;
   opacity: 0px;
+  border-radius: 8px;
+  justify-content: center;
+  text-align: center;
 }
