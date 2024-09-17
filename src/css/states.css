@@ -4,6 +4,10 @@
   gap: 8px;
   align-items: center;
   justify-content: center;
+  width: 272px;
+  height: 40px;
+  gap: 8px;
+  opacity: 0px;
 }
 .input-class {
   border-radius: 4px;
