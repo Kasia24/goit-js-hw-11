@@ -31,3 +31,6 @@
   background-color: rgba(78, 117, 255, 1);
   border-color: rgba(78, 117, 255, 1);
 }
+:hover.btn {
+  background-color: rgba(108, 140, 255, 1);
+}
