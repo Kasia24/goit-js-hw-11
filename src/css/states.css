@@ -5,6 +5,7 @@
 }
 .input-class {
   border-radius: 4px;
+  gap: 10px;
 }
 .message-class {
   width: 272px;
