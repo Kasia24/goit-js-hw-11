@@ -6,6 +6,9 @@
 .input-class {
   border-radius: 4px;
   gap: 10px;
+  width: 272px;
+  height: 40px;
+  opacity: 0px;
 }
 .message-class {
   width: 272px;
