@@ -4,8 +4,6 @@
   gap: 8px;
   align-items: center;
   justify-content: center;
-  width: 272px;
-  height: 40px;
   gap: 8px;
   opacity: 0px;
 }
@@ -49,7 +47,7 @@
   height: 40px;
   gap: 8px;
   opacity: 0px;
-  border-radius: 8px;
+  border-radius: 4px;
   justify-content: center;
   text-align: center;
 }
