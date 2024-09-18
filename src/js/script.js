@@ -1,6 +1,9 @@
 // Twój unikalny klucz dostępu do Pixabay
 const API_KEY = '46058905-76d6ace161caaf887286baf22';
 
+// Inicjalizacja SimpleLightbox
+let lightbox = new SimpleLightbox('#image-gallery a');
+
 // Nasłuchiwanie na formularz wyszukiwania
 document
   .getElementById('search-form')
@@ -38,11 +41,20 @@ function displayImages(images) {
   gallery.innerHTML = ''; // Wyczyszczenie galerii
 
   images.forEach(image => {
+    const anchorElement = document.createElement('a');
+    anchorElement.href = image.largeImageURL; // Odnośnik do dużej wersji obrazu
+    anchorElement.dataset.lightbox = 'gallery'; // Atrybut dla SimpleLightbox
+
     const imgElement = document.createElement('img');
-    imgElement.src = image.webformatURL;
+    imgElement.src = image.webformatURL; // Mniejsza wersja obrazu dla galerii
     imgElement.alt = image.tags;
-    gallery.appendChild(imgElement);
+
+    anchorElement.appendChild(imgElement);
+    gallery.appendChild(anchorElement);
   });
+
+  // Odświeżenie galerii SimpleLightbox po dodaniu nowych elementów
+  lightbox.refresh();
 }
 
 function showNoResultsMessage() {
