@@ -38,6 +38,16 @@
   text-align: left;
   color: rgba(128, 128, 128, 1);
 }
+#image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 24px;
+  margin-right: 156px;
+  margin-left: 156px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
 #loading-indicator {
   display: none;
   font-size: 18px;
