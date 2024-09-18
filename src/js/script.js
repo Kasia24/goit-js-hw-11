@@ -4,6 +4,9 @@ const API_KEY = '46058905-76d6ace161caaf887286baf22';
 // Inicjalizacja SimpleLightbox
 let lightbox = new SimpleLightbox('#image-gallery a');
 
+// Element wskaźnika ładowania
+const loadingIndicator = document.getElementById('loading-indicator');
+
 // Nasłuchiwanie na formularz wyszukiwania
 document
   .getElementById('search-form')
@@ -12,6 +15,9 @@ document
 
     // Pobranie wartości z pola wyszukiwania
     const query = document.getElementById('search-query').value;
+
+    // Włączenie wskaźnika ładowania
+    showLoadingIndicator();
 
     // Wysyłanie zapytania do API Pixabay
     searchImages(query);
@@ -25,6 +31,8 @@ function searchImages(query) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
+      hideLoadingIndicator(); // Wyłączenie wskaźnika ładowania
+
       if (data.hits.length > 0) {
         displayImages(data.hits);
       } else {
@@ -32,6 +40,7 @@ function searchImages(query) {
       }
     })
     .catch(error => {
+      hideLoadingIndicator(); // Wyłączenie wskaźnika w przypadku błędu
       console.error('Błąd:', error);
     });
 }
@@ -64,4 +73,14 @@ function showNoResultsMessage() {
       'Sorry, there are no images matching your search query. Please try again!',
     position: 'topRight',
   });
+}
+
+// Funkcja do włączenia wskaźnika ładowania
+function showLoadingIndicator() {
+  loadingIndicator.style.display = 'block';
+}
+
+// Funkcja do wyłączenia wskaźnika ładowania
+function hideLoadingIndicator() {
+  loadingIndicator.style.display = 'none';
 }
