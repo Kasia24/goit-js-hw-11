@@ -46,6 +46,19 @@
   height: 200px;
   display: flex;
   flex-wrap: wrap;
+  gap: 24px;
+}
+.gallery-item {
+  flex-basis: calc(33.333% - 24px);
+}
+.gallery-image {
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 360px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
 }
 #loading-indicator {
   display: none;
