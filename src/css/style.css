@@ -6,17 +6,6 @@
   opacity: 0px;
   gap: 8px;
 }
-.input-class {
-  border-radius: 4px;
-  gap: 10px;
-  width: 272px;
-  height: 40px;
-  opacity: 0px;
-}
-.txt-class {
-  border-radius: 4px;
-  gap: 8px;
-}
 .btn {
   width: 75px;
   height: 40px;
@@ -48,4 +37,10 @@
   letter-spacing: 0.04em;
   text-align: left;
   color: rgba(128, 128, 128, 1);
+}
+#loading-indicator {
+  display: none;
+  font-size: 18px;
+  color: #007bff;
+  margin-bottom: 20px;
 }
