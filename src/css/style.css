@@ -53,15 +53,7 @@
 .gallery-item {
   flex-basis: calc(33.333% - 24px);
 }
-.gallery {
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  width: 360px;
-  height: 200px;
-  display: flex;
-  flex-wrap: wrap;
-}
+
 #loading-spinner {
   display: none;
   font-size: 18px;
@@ -83,14 +75,7 @@
     transform: rotate(360deg);
   }
 }
-image {
-  width: 320px;
-  height: 200px;
-}
-.item {
-  width: 320px;
-  height: 200px;
-}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
