@@ -6,6 +6,7 @@ const form = document.getElementById('search-form');
 const gallery = document.getElementById('gallery');
 const loader = document.getElementById('loader');
 
+// Inicjalizacja SimpleLightbox (korzystamy z globalnej wersji)
 let lightbox = new SimpleLightbox('.gallery a');
 
 // Funkcja wysyłająca zapytanie do API Pixabay
