@@ -47,6 +47,8 @@
   margin-top: 24px;
   margin-bottom: 24px;
   gap: 24px;
+  width: 1128px;
+  height: 200px;
 }
 .gallery-item {
   flex-basis: calc(33.333% - 24px);
