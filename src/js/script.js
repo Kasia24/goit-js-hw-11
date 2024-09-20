@@ -1,4 +1,6 @@
+// Opisany w dokumentacji
 import SimpleLightbox from 'simplelightbox';
+// Opcjonalny import stylów
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 // Twój unikalny klucz API Pixabay
