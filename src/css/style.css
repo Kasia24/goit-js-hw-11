@@ -84,7 +84,7 @@
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  ggrid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 24px;
   gap: 24px;
 }
