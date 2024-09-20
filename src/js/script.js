@@ -62,28 +62,8 @@ function displayImages(images) {
     gallery.appendChild(anchorElement);
   });
 
-
-  function displayImages(images) {
-    gallery.innerHTML = '';
-    images.forEach(image => {
-        const markup = `
-            <a href="${image.largeImageURL}" class="card">
-                <img src="${image.webformatURL}" alt="${image.tags}">
-                <div class="info">
-                    <p><strong>Likes:</strong> ${image.likes}</p>
-                    <p><strong>Views:</strong> ${image.views}</p>
-                    <p><strong>Comments:</strong> ${image.comments}</p>
-                    <p><strong>Downloads:</strong> ${image.downloads}</p>
-                </div>
-            </a>
-        `;
-        gallery.insertAdjacentHTML('beforeend', markup);
-    });
-    lightbox.refresh(); // Odśwież lightbox po dodaniu nowych elementów
+  lightbox.refresh(); // Odśwież lightbox po dodaniu nowych elementów
 }
-
-
- 
 
 function showNoResultsMessage() {
   iziToast.info({
