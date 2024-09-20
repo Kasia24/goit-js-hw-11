@@ -2,82 +2,85 @@
 const API_KEY = '46058905-76d6ace161caaf887286baf22';
 
 // Inicjalizacja SimpleLightbox
-let lightbox = new SimpleLightbox('.gallery a');
+let lightbox = new SimpleLightbox('#image-gallery a');
 
-// Funkcja pobierająca obrazy z Pixabay
-async function fetchImages(query) {
+// Element wskaźnika ładowania
+const loadingIndicator = document.getElementById('loading-indicator');
+
+// Nasłuchiwanie na formularz wyszukiwania
+document
+  .getElementById('search-form')
+  .addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Pobranie wartości z pola wyszukiwania
+    const query = document.getElementById('search-query').value;
+
+    // Włączenie wskaźnika ładowania
+    showLoadingIndicator();
+
+    // Wysyłanie zapytania do API Pixabay
+    searchImages(query);
+  });
+
+function searchImages(query) {
   const url = `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
     query
   )}&image_type=photo&orientation=horizontal&safesearch=true`;
 
-  try {
-    showLoadingSpinner();
-    const response = await fetch(url);
-    const data = await response.json();
-    hideLoadingSpinner();
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      hideLoadingIndicator(); // Wyłączenie wskaźnika ładowania
 
-    if (data.hits.length > 0) {
-      displayImages(data.hits);
-    } else {
-      iziToast.error({
-        title: 'Błąd',
-        message: 'Przepraszamy, nie znaleziono wyników dla tego zapytania.',
-        position: 'topRight',
-      });
-    }
-  } catch (error) {
-    hideLoadingSpinner();
-    iziToast.error({
-      title: 'Błąd',
-      message:
-        'Wystąpił problem z pobraniem obrazów. Spróbuj ponownie później.',
-      position: 'topRight',
+      if (data.hits.length > 0) {
+        displayImages(data.hits);
+      } else {
+        showNoResultsMessage();
+      }
+    })
+    .catch(error => {
+      hideLoadingIndicator(); // Wyłączenie wskaźnika w przypadku błędu
+      console.error('Błąd:', error);
     });
-    console.error(error);
-  }
 }
 
-// Funkcja wyświetlająca obrazy
 function displayImages(images) {
-  gallery.innerHTML = '';
+  const gallery = document.getElementById('image-gallery');
+  gallery.innerHTML = ''; // Wyczyszczenie galerii
+
   images.forEach(image => {
-    const markup = `
-            <a href="${image.largeImageURL}" class="card">
-                <img src="${image.webformatURL}" alt="${image.tags}">
-                <div class="info">
-                    <p><strong>Likes:</strong> ${image.likes}</p>
-                    <p><strong>Views:</strong> ${image.views}</p>
-                    <p><strong>Comments:</strong> ${image.comments}</p>
-                    <p><strong>Downloads:</strong> ${image.downloads}</p>
-                </div>
-            </a>
-        `;
-    gallery.insertAdjacentHTML('beforeend', markup);
+    const anchorElement = document.createElement('a');
+    anchorElement.href = image.largeImageURL; // Odnośnik do dużej wersji obrazu
+    anchorElement.dataset.lightbox = 'gallery'; // Atrybut dla SimpleLightbox
+
+    const imgElement = document.createElement('img');
+    imgElement.src = image.webformatURL; // Mniejsza wersja obrazu dla galerii
+    imgElement.alt = image.tags;
+
+    anchorElement.appendChild(imgElement);
+    gallery.appendChild(anchorElement);
   });
-  lightbox.refresh(); // Odśwież lightbox po dodaniu nowych elementów
+
+  // Odświeżenie galerii SimpleLightbox po dodaniu nowych elementów
+  lightbox.refresh();
 }
 
-// Funkcja pokazująca wskaźnik ładowania
-function showLoadingSpinner() {
-  loadingSpinner.classList.remove('hidden');
+function showNoResultsMessage() {
+  iziToast.info({
+    title: 'Brak wyników',
+    message:
+      'Sorry, there are no images matching your search query. Please try again!',
+    position: 'topRight',
+  });
 }
 
-// Funkcja ukrywająca wskaźnik ładowania
-function hideLoadingSpinner() {
-  loadingSpinner.classList.add('hidden');
+// Funkcja do włączenia wskaźnika ładowania
+function showLoadingIndicator() {
+  loadingIndicator.style.display = 'block';
 }
 
-// Obsługa formularza
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
-  const query = input.value.trim();
-  if (query) {
-    fetchImages(query);
-  } else {
-    iziToast.warning({
-      title: 'Uwaga',
-      message: 'Proszę wprowadzić słowo kluczowe.',
-      position: 'topRight',
-    });
-  }
-});
+// Funkcja do wyłączenia wskaźnika ładowania
+function hideLoadingIndicator() {
+  loadingIndicator.style.display = 'none';
+}
