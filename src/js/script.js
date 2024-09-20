@@ -1,100 +1,86 @@
 // Twój unikalny klucz API Pixabay
 const API_KEY = '46058905-76d6ace161caaf887286baf22';
 
-// Pobierz elementy DOM
-const form = document.getElementById('search-form');
-const gallery = document.getElementById('gallery');
-const loader = document.getElementById('loader');
+// Inicjalizacja SimpleLightbox
+let lightbox = new SimpleLightbox('#image-gallery a');
 
-// Inicjalizacja SimpleLightbox (korzystamy z globalnej wersji)
-let lightbox = new SimpleLightbox('.gallery a');
+// Element wskaźnika ładowania
+const loadingIndicator = document.getElementById('loading-indicator');
 
-// Funkcja wysyłająca zapytanie do API Pixabay
-async function fetchImages(query) {
-  const endpoint = `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
+// Nasłuchiwanie na formularz wyszukiwania
+document
+  .getElementById('search-form')
+  .addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Pobranie wartości z pola wyszukiwania
+    const query = document.getElementById('search-query').value;
+
+    // Włączenie wskaźnika ładowania
+    showLoadingIndicator();
+
+    // Wysyłanie zapytania do API Pixabay
+    searchImages(query);
+  });
+
+function searchImages(query) {
+  const url = `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
     query
   )}&image_type=photo&orientation=horizontal&safesearch=true`;
 
-  try {
-    showLoader();
-    const response = await fetch(endpoint);
-    const data = await response.json();
-    hideLoader();
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      hideLoadingIndicator(); // Wyłączenie wskaźnika ładowania
 
-    if (data.hits.length > 0) {
-      clearGallery();
-      displayImages(data.hits);
-    } else {
-      clearGallery();
-      iziToast.error({
-        title: 'Oops!',
-        message:
-          'Przepraszamy, nie ma obrazów zgodnych z wyszukiwaniem. Spróbuj ponownie!',
-        position: 'topRight',
-      });
-    }
-  } catch (error) {
-    hideLoader();
-    console.error('Błąd podczas pobierania obrazów:', error);
-    iziToast.error({
-      title: 'Błąd',
-      message:
-        'Wystąpił problem z pobieraniem obrazów. Spróbuj ponownie później.',
-      position: 'topRight',
+      if (data.hits.length > 0) {
+        displayImages(data.hits);
+      } else {
+        showNoResultsMessage();
+      }
+    })
+    .catch(error => {
+      hideLoadingIndicator(); // Wyłączenie wskaźnika w przypadku błędu
+      console.error('Błąd:', error);
     });
-  }
 }
 
-// Funkcja wyświetlająca obrazy w galerii
 function displayImages(images) {
-  const markup = images
-    .map(
-      image => `
-        <a href="${image.largeImageURL}" class="card">
-            <img src="${image.webformatURL}" alt="${image.tags}" />
-            <div class="info">
-                <p><strong>Likes:</strong> ${image.likes}</p>
-                <p><strong>Views:</strong> ${image.views}</p>
-                <p><strong>Comments:</strong> ${image.comments}</p>
-                <p><strong>Downloads:</strong> ${image.downloads}</p>
-            </div>
-        </a>
-    `
-    )
-    .join('');
+  const gallery = document.getElementById('image-gallery');
+  gallery.innerHTML = ''; // Wyczyszczenie galerii
 
-  gallery.insertAdjacentHTML('beforeend', markup);
+  images.forEach(image => {
+    const anchorElement = document.createElement('a');
+    anchorElement.href = image.largeImageURL; // Odnośnik do dużej wersji obrazu
+    anchorElement.dataset.lightbox = 'gallery'; // Atrybut dla SimpleLightbox
+
+    const imgElement = document.createElement('img');
+    imgElement.src = image.webformatURL; // Mniejsza wersja obrazu dla galerii
+    imgElement.alt = image.tags;
+
+    anchorElement.appendChild(imgElement);
+    gallery.appendChild(anchorElement);
+  });
+
+  // Odświeżenie galerii SimpleLightbox po dodaniu nowych elementów
   lightbox.refresh();
 }
 
-// Funkcja czyszcząca galerię
-function clearGallery() {
-  gallery.innerHTML = '';
+function showNoResultsMessage() {
+  iziToast.info({
+    title: 'Brak wyników',
+    message:
+      'Sorry, there are no images matching your search query. Please try again!',
+    position: 'topRight',
+  });
 }
 
-// Pokaż wskaźnik ładowania
-function showLoader() {
-  loader.classList.remove('hidden');
+// Funkcja do włączenia wskaźnika ładowania
+function showLoadingIndicator() {
+  loadingIndicator.style.display = 'block';
 }
 
-// Ukryj wskaźnik ładowania
-function hideLoader() {
-  loader.classList.add('hidden');
+// Funkcja do wyłączenia wskaźnika ładowania
+function hideLoadingIndicator() {
+  loadingIndicator.style.display = 'none';
 }
-
-// Obsługa formularza wyszukiwania
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  const query = document.getElementById('search-query').value.trim();
-
-  if (query) {
-    fetchImages(query);
-  } else {
-    iziToast.warning({
-      title: 'Uwaga',
-      message: 'Proszę wprowadzić słowo kluczowe do wyszukiwania.',
-      position: 'topRight',
-    });
-  }
-});
