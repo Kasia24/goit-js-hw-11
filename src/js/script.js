@@ -1,12 +1,6 @@
 // Twój unikalny klucz API Pixabay
 const API_KEY = '46058905-76d6ace161caaf887286baf22';
 
-// Pobierz elementy z DOM
-const form = document.getElementById('search-form');
-const input = document.getElementById('search-input');
-const gallery = document.getElementById('gallery');
-const loadingSpinner = document.getElementById('loading-spinner');
-
 // Inicjalizacja SimpleLightbox
 let lightbox = new SimpleLightbox('.gallery a');
 
