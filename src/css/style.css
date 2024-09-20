@@ -112,6 +112,7 @@
 .hidden {
   justify-content: center;
   text-align: center;
+  gap: 24px;
 }
 
 #loading-spinner {
