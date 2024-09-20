@@ -78,6 +78,7 @@
 
 .container {
   width: 1128px;
+  height: 200px;
   margin: 0 auto;
   text-align: center;
 }
@@ -113,10 +114,4 @@
   justify-content: center;
   text-align: center;
   gap: 24px;
-}
-
-#loading-spinner {
-  font-size: 18px;
-  color: #333;
-  margin: 20px auto;
 }
