@@ -92,6 +92,7 @@ image {
   height: 200px;
 }
 .container {
-  width: 320px;
-  height: 200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
