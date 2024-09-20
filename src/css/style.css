@@ -110,7 +110,7 @@
 }
 
 .hidden {
-  display: none;
+  justify-content: center;
   text-align: center;
 }
 
