@@ -111,6 +111,7 @@
 
 .hidden {
   display: none;
+  text-align: center;
 }
 
 #loading-spinner {
