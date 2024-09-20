@@ -62,13 +62,13 @@
   display: flex;
   flex-wrap: wrap;
 }
-#loading-indicator {
+#loading-spinner {
   display: none;
   font-size: 18px;
   color: #007bff;
   margin-bottom: 20px;
 }
-.spinner {
+.hidden {
   display: inline-block;
   width: 50px;
   height: 50px;
