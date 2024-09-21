@@ -62,11 +62,11 @@ const displayImages = images => {
             <div class="stats">
                 <span class="span">Likes 
                 ${image.likes}</span>
-                <span>Views 
+                <span class="span">Views 
                 ${image.views}</span>
-                <span>Comments 
+                <span class="span">Comments 
                 ${image.comments}</span>
-                <span>Downloads 
+                <span class="span">Downloads 
                 ${image.downloads}</span>
             </div>
         `;
