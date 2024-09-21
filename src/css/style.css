@@ -45,7 +45,7 @@
   margin-left: 156px;
   margin-top: 24px;
   margin-bottom: 24px;
-  gap: 32px;
+  gap: 24px;
   width: 1128px;
   height: 200px;
 }
@@ -53,6 +53,7 @@
   flex-basis: calc(33.333% - 24px);
   width: 320px;
   height: 200px;
+  gap: 24px;
 }
 
 #loading-spinner {
