@@ -161,5 +161,6 @@ img {
   flex-direction: row;
 }
 .span {
-  display: grid;
+  display: flex;
+  flex-direction: row;
 }
