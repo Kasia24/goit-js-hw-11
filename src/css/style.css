@@ -83,6 +83,7 @@
   height: 200px;
   margin: 0 auto;
   text-align: center;
+  gap: 24px;
 }
 
 .gallery {
