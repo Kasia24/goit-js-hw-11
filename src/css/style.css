@@ -158,7 +158,7 @@ img {
 }
 .stats {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .span {
   display: grid;
