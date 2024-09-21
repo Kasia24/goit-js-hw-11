@@ -156,7 +156,7 @@ img {
   height: 60px;
   animation: spin 2s linear infinite;
 }
-span {
+.stats {
   display: flex;
   flex-direction: column;
 }
