@@ -157,5 +157,6 @@ img {
   animation: spin 2s linear infinite;
 }
 span {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
