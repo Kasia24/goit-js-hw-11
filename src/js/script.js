@@ -60,7 +60,7 @@ const displayImages = images => {
                 <img src="${image.webformatURL}" alt="${image.tags}">
             </a>
             <div class="stats">
-                <span>Likes 
+                <span class="span">Likes 
                 ${image.likes}</span>
                 <span>Views 
                 ${image.views}</span>

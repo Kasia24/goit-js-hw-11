@@ -160,3 +160,7 @@ img {
   display: flex;
   flex-direction: column;
 }
+.span {
+  display: flex;
+  flex-direction: column;
+}
