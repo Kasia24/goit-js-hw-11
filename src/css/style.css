@@ -170,4 +170,5 @@ img {
   line-height: 16px;
   letter-spacing: 0.04em;
   text-align: left;
+  gap: 24px;
 }
