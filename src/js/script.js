@@ -1,6 +1,3 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
 // Twój unikalny klucz API Pixabay
 const API_KEY = '46058905-76d6ace161caaf887286baf22';
 
