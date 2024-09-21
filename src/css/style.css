@@ -42,11 +42,10 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  gap: 24px;
   margin-left: 156px;
   margin-top: 24px;
   margin-bottom: 24px;
-  gap: 24px;
+  gap: 32px;
   width: 1128px;
   height: 200px;
 }
