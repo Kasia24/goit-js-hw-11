@@ -125,3 +125,8 @@
   text-align: left;
   color: rgba(46, 47, 66, 1);
 }
+.gallery-image {
+  width: 320px;
+  height: 200px;
+  gap: 24px;
+}
