@@ -51,6 +51,8 @@
 }
 .gallery-item {
   flex-basis: calc(33.333% - 24px);
+  width: 320px;
+  height: 200px;
 }
 
 #loading-spinner {
