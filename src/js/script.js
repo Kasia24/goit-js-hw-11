@@ -56,7 +56,7 @@ const displayImages = images => {
     card.classList.add('card');
 
     card.innerHTML = `
-            <<a href="${image.largeImageURL}">
+            <a href="${image.largeImageURL}">
                 <img src="${image.webformatURL}" alt="${image.tags}">
             </a>
             <div class="stats">
