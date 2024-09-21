@@ -83,26 +83,3 @@ function showLoadingIndicator() {
 function hideLoadingIndicator() {
   loadingIndicator.style.display = 'none';
 }
-
-// Funkcja do wyświetlania obrazów w galerii
-const displayImages = images => {
-  images.forEach(image => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-
-    card.innerHTML = `
-          <a href="${image.largeImageURL}" target="_blank">
-              <img src="${image.webformatURL}" alt="${image.tags}">
-          </a>
-          <p>${image.tags}</p>
-          <div class="stats">
-              <span>Likes: ${image.likes}</span>
-              <span>Views: ${image.views}</span>
-              <span>Comments: ${image.comments}</span>
-              <span>Downloads: ${image.downloads}</span>
-          </div>
-      `;
-
-    gallery.appendChild(card);
-  });
-};
