@@ -125,6 +125,12 @@ p {
   line-height: 24px;
   letter-spacing: 0.04em;
   color: rgba(46, 47, 66, 1);
+  width: 256px;
+  height: 24px;
+  top: 108px;
+  left: 592px;
+  gap: 0px;
+  opacity: 0px;
 }
 .gallery-image {
   width: 320px;
