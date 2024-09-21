@@ -59,7 +59,6 @@ const displayImages = images => {
             <<a href="${image.largeImageURL}">
                 <img src="${image.webformatURL}" alt="${image.tags}">
             </a>
-            <p>${image.tags}</p>>
             <div class="stats">
                 <span>Likes: ${image.likes}</span>
                 <span>Views: ${image.views}</span>
