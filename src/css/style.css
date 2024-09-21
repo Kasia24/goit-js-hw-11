@@ -116,7 +116,9 @@
   justify-content: center;
   text-align: center;
   gap: 24px;
-  display: none;
+}
+
+p {
   font-family: Montserrat;
   font-size: 16px;
   font-weight: 400;
