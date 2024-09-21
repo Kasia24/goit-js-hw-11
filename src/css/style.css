@@ -159,9 +159,15 @@ img {
 .stats {
   display: flex;
   flex-direction: row;
+  gap: 24px;
 }
 .span {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-align: left;
 }
