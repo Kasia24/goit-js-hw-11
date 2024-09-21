@@ -159,9 +159,9 @@ img {
 .stats {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 .span {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
