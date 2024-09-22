@@ -56,21 +56,6 @@
   gap: 24px;
 }
 
-#loading-spinner {
-  display: none;
-  font-size: 18px;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-.hidden {
-  display: inline;
-  width: 50px;
-  height: 50px;
-  border: 3px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  animation: spin 1s ease-in-out infinite;
-}
-
 .container {
   width: 1128px;
   height: 200px;
