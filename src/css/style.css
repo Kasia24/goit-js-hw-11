@@ -165,3 +165,7 @@ img {
   display: flex;
   flex-direction: row;
 }
+#loader {
+  display: none;
+  text-align: center;
+}
