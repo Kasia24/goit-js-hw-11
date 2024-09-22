@@ -71,12 +71,6 @@
   animation: spin 1s ease-in-out infinite;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .container {
   width: 1128px;
   height: 200px;
