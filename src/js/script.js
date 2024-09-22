@@ -27,7 +27,7 @@ const searchImages = async query => {
     clearGallery();
 
     // Ukryj loader
-    loader.hidden = true;
+    loader.hidden = false;
 
     if (data.hits.length === 0) {
       // Wyświetlanie komunikatu iziToast
