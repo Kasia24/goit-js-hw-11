@@ -29,8 +29,11 @@ const searchImages = async query => {
   loader.hidden = true;
 
   try {
+    showLoader();
     const response = await fetch(url);
     const data = await response.json();
+
+    hideLoader();
 
     // Czyszczenie galerii przed dodaniem nowych wyników
     clearGallery();
