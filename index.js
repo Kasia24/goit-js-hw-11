@@ -1,16 +1,16 @@
-(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))o(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const a of r.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&o(a)}).observe(document,{childList:!0,subtree:!0});function s(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function o(t){if(t.ep)return;t.ep=!0;const r=s(t);fetch(t.href,r)}})();const l="46058905-76d6ace161caaf887286baf22",d=document.getElementById("search-form"),u=document.getElementById("search-input"),i=document.getElementById("gallery"),c=document.getElementById("loader");let p=new SimpleLightbox(".gallery a");const f=async n=>{const e=`https://pixabay.com/api/?key=${l}&q=${encodeURIComponent(n)}&image_type=photo&orientation=horizontal&safesearch=true`;c.hidden=!0;try{const o=await(await fetch(e)).json();h(),c.hidden=!1,o.hits.length===0?iziToast.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!"}):(m(o.hits),p.refresh())}catch(s){c.hidden=!0,console.error("Error fetching images from Pixabay:",s)}},m=n=>{n.forEach(e=>{const s=document.createElement("div");s.classList.add("card"),s.innerHTML=`
-            <a href="${e.largeImageURL}">
-                <img src="${e.webformatURL}" alt="${e.tags}">
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const s of e)if(s.type==="childList")for(const c of s.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&a(c)}).observe(document,{childList:!0,subtree:!0});function r(e){const s={};return e.integrity&&(s.integrity=e.integrity),e.referrerPolicy&&(s.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?s.credentials="include":e.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function a(e){if(e.ep)return;e.ep=!0;const s=r(e);fetch(e.href,s)}})();const l="46058905-76d6ace161caaf887286baf22",d=document.getElementById("search-form"),u=document.getElementById("search-input"),i=document.getElementById("gallery"),n=document.getElementById("loader");let p=new SimpleLightbox(".gallery a");const f=async o=>{const t=`https://pixabay.com/api/?key=${l}&q=${encodeURIComponent(o)}&image_type=photo&orientation=horizontal&safesearch=true`;function r(){n.style.display="block"}function a(){n.style.display="none"}n.hidden=!0;try{r();const s=await(await fetch(t)).json();a(),h(),n.hidden=!1,s.hits.length===0?iziToast.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!"}):(m(s.hits),p.refresh())}catch(e){n.hidden=!0,console.error("Error fetching images from Pixabay:",e)}},m=o=>{o.forEach(t=>{const r=document.createElement("div");r.classList.add("card"),r.innerHTML=`
+            <a href="${t.largeImageURL}">
+                <img src="${t.webformatURL}" alt="${t.tags}">
             </a>
             <div class="stats">
                 <span class="span">Likes
-                ${e.likes}</span>
+                ${t.likes}</span>
                 <span class="span">Views 
-                ${e.views}</span>
+                ${t.views}</span>
                 <span class="span">Comments 
-                ${e.comments}</span>
+                ${t.comments}</span>
                 <span class="span">Downloads 
-                ${e.downloads}</span>
+                ${t.downloads}</span>
             </div>
-        `,i.appendChild(s)})},h=()=>{i.innerHTML=""};d.addEventListener("submit",n=>{n.preventDefault();const e=u.value.trim();e!==""&&f(e)});
+        `,i.appendChild(r)})},h=()=>{i.innerHTML=""};d.addEventListener("submit",o=>{o.preventDefault();const t=u.value.trim();t!==""&&f(t)});
 //# sourceMappingURL=index.js.map
