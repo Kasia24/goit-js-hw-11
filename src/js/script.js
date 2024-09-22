@@ -17,7 +17,7 @@ const searchImages = async query => {
   )}&image_type=photo&orientation=horizontal&safesearch=true`;
 
   // Pokaż loader
-  loader.hidden = false;
+  loader.hidden = true;
 
   try {
     const response = await fetch(url);
