@@ -16,6 +16,15 @@ const searchImages = async query => {
     query
   )}&image_type=photo&orientation=horizontal&safesearch=true`;
 
+  // Funkcja pokazująca i ukrywająca loader
+  function showLoader() {
+    loader.style.display = 'block';
+  }
+
+  function hideLoader() {
+    loader.style.display = 'none';
+  }
+
   // Pokaż loader
   loader.hidden = true;
 
