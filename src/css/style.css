@@ -156,6 +156,8 @@ img {
   left: 592px;
   gap: 0px;
   opacity: 0px;
+  align-items: center;
+  justify-content: center;
 }
 .stats {
   display: flex;
